@@ -208,6 +208,11 @@ class MainDashboard(QMainWindow):
         advanced_search_btn.setFixedHeight(35)
         top_bar_layout.addWidget(advanced_search_btn)
         # دکمه تغییر نمای داشبورد
+        self.prescription_btn = QPushButton("📝 ثبت و مدیریت نسخه") # Note/Form
+        self.warehouse_btn = QPushButton("📦 مدیریت انبار") # Box/Package
+        self.reports_btn = QPushButton("📈 گزارشات و صندوق") # Chart/Growth
+        self.settings_btn = QPushButton("⚙️ تنظیمات") # Gear/Cog
+        self.about_btn = QPushButton("ℹ️ درباره ما") # Information
         view_toggle_btn = QPushButton("📊 نمای پیشرفته")  # تغییر از "کلاسیک" به "پیشرفته"
         view_toggle_btn.clicked.connect(self.toggle_dashboard_view)
         view_toggle_btn.setFixedHeight(35)
