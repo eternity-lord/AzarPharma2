@@ -1,0 +1,357 @@
+/* resources/azarsheet.qss - Updated for modern and unified UI */
+
+/* Global Styles */
+QWidget {
+    font-family: 'Segoe UI', 'Vazirmatn', 'B Nazanin', Arial, Tahoma, sans-serif;
+    font-size: 14px;
+    color: #34495e; /* Darker text for better readability */
+    background-color: #f8faff; /* Light background for the whole application */
+}
+
+/* Base QDialog style - applies to all dialogs by default */
+QDialog {
+    background-color: #fcfdfe; /* Slightly lighter background for dialogs */
+    border: 1px solid #d0d7e4;
+    border-radius: 10px; /* More prominent border-radius for dialogs */
+}
+
+/* Main Titles */
+QLabel#Title, QLabel#MainTitle {
+    font-size: 24px; /* Slightly larger */
+    font-weight: bold;
+    color: #237ffa; /* Your primary blue */
+    padding: 10px 0 15px 0; /* More padding */
+    text-align: center; /* Center align title */
+}
+
+/* Section Frames (Used for grouping controls) */
+QFrame#SectionFrame {
+    background-color: #ffffff; /* White background for sections */
+    border: 1px solid #e0eaf9; /* Lighter, subtle border */
+    border-radius: 10px; /* Consistent border-radius */
+    padding: 15px; /* More internal padding */
+    margin: 5px; /* Margin around frames */
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.05); /* Soft shadow for depth */
+}
+
+/* LineEdits, QDateEdit, QSpinBox (Inputs) */
+QLineEdit, QDateEdit, QSpinBox {
+    background: #ffffff;
+    border: 1px solid #a3b8d4; /* Softer blue border */
+    border-radius: 7px;
+    font-size: 14px;
+    color: #34495e;
+    padding: 8px 12px; /* Increased padding */
+    min-height: 28px; /* Increased min-height */
+}
+QLineEdit:focus, QDateEdit:focus, QSpinBox:focus {
+    border: 2px solid #237ffa; /* Primary blue on focus */
+    background: #eaf2ff; /* Light blue tint on focus */
+    outline: none;
+    box-shadow: 0 0 5px rgba(35, 127, 250, 0.4); /* Focus shadow */
+}
+
+/* ComboBox */
+QComboBox {
+    background: #ffffff;
+    border: 1px solid #a3b8d4;
+    border-radius: 7px;
+    padding: 8px 30px 8px 10px; /* Adjusted padding for arrow */
+    font-size: 14px;
+    min-height: 28px; /* Consistent height */
+    min-width: 100px;
+}
+QComboBox:focus {
+    border: 2px solid #237ffa;
+    background: #eaf2ff;
+}
+QComboBox QAbstractItemView {
+    background: #ffffff;
+    color: #34495e;
+    border: 1px solid #a3b8d4;
+    selection-background-color: #dbeaff; /* Lighter selection */
+    selection-color: #237ffa; /* Primary blue selection color */
+    font-size: 14px;
+    border-radius: 7px;
+    padding: 5px; /* Padding for list items */
+}
+QComboBox::down-arrow {
+    image: url(resources/arrow_drop_down.svg); /* Ensure this path is correct or use a unicode character */
+    width: 24px; /* Larger arrow */
+    height: 24px;
+}
+QComboBox::drop-down {
+    border: none;
+    width: 30px; /* Wider drop-down area */
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+    background: transparent;
+    padding-right: 5px; /* Spacing for arrow */
+}
+
+/* PushButtons (General) */
+QPushButton {
+    background: #237ffa; /* Primary blue */
+    color: #ffffff;
+    border: none;
+    border-radius: 8px; /* Consistent border-radius */
+    padding: 10px 25px; /* Increased padding */
+    font-size: 15px;
+    font-weight: 600;
+    outline: none;
+    min-width: 80px;
+    transition: background 0.12s; /* Smooth transition (Qt might not fully support this) */
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1); /* Soft shadow for buttons */
+}
+QPushButton:hover {
+    background: #1e6bd6; /* Slightly darker blue on hover */
+    color: #ffffff;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.15); /* More prominent shadow on hover */
+}
+QPushButton:pressed {
+    background: #155cb0; /* Even darker on press */
+    color: #e2e2e2;
+    padding-left: 24px; /* Slight press effect */
+    padding-right: 20px;
+    box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.2); /* Inset shadow on press */
+}
+QPushButton:disabled {
+    background: #d8e1ef; /* Lighter background when disabled */
+    color: #a3b8d4; /* Lighter text when disabled */
+    box-shadow: none;
+}
+
+/* Specific Button Styles (using objectName for targeting) */
+QPushButton#SaveButton { background: #28a745; } /* Green for save */
+QPushButton#SaveButton:hover { background: #218838; }
+QPushButton#SaveButton:pressed { background: #1c742e; }
+
+QPushButton#CancelButton { background: #dc3545; } /* Red for cancel/delete */
+QPushButton#CancelButton:hover { background: #c82333; }
+QPushButton#CancelButton:pressed { background: #bd2130; }
+
+QPushButton#PrintButton { background: #007bff; } /* Blue for print */
+QPushButton#PrintButton:hover { background: #0069d9; }
+QPushButton#PrintButton:pressed { background: #0056b3; }
+
+
+/* TableWidgets, QTableView */
+QTableWidget, QTableView {
+    background: #ffffff;
+    border: 1px solid #d7e4f6;
+    border-radius: 9px;
+    font-size: 13px;
+    selection-background-color: #dbeaff; /* Lighter selection background */
+    selection-color: #237ffa; /* Primary blue selection color */
+    gridline-color: #e0eaf9; /* Lighter grid lines */
+}
+QHeaderView::section {
+    background-color: #e8f1fa; /* Light header background */
+    color: #237ffa; /* Header text color */
+    border: none;
+    font-weight: bold;
+    font-size: 14px;
+    border-top-left-radius: 9px; /* Rounded top corners for header */
+    border-top-right-radius: 9px;
+    padding: 10px 0px; /* Increased padding */
+    min-height: 35px; /* Minimum height for headers */
+}
+QHeaderView { border: none; padding: 0;} /* Remove extra header border/padding */
+
+QTableWidget::item, QTableView::item {
+    background: transparent;
+    padding: 5px; /* More padding for items */
+}
+QTableCornerButton::section { background: #e8f1fa; } /* Match header background */
+
+/* Scrollbar (Modern and Slim) */
+QScrollBar:vertical, QScrollBar:horizontal {
+    background: #F4F8FC;
+    border: none;
+    border-radius: 5px; /* Slightly smaller radius for handle */
+    width: 10px; /* Slimmer scrollbar */
+    height: 10px;
+    margin: 0; /* Remove margin */
+}
+QScrollBar::handle:vertical, QScrollBar::handle:horizontal {
+    background: #a3b8d4; /* Softer handle color */
+    border-radius: 5px;
+    min-height: 20px; /* Smaller minimum handle size */
+    min-width: 20px;
+}
+QScrollBar::handle:vertical:hover, QScrollBar::handle:horizontal:hover {
+    background: #237ffa; /* Primary blue on hover */
+}
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical,
+QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal {
+    height: 0; width: 0; /* Remove buttons */
+}
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical,
+QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
+    background: none; /* Remove page background */
+}
+
+/* TabWidget */
+QTabWidget::pane {
+    border: 1px solid #a3b8d4; /* Softer border */
+    border-radius: 10px; /* Consistent radius */
+    background: #fcfdfe; /* Lighter background for tab content */
+    padding: 5px; /* Padding inside the pane */
+}
+QTabBar::tab {
+    background: #e8f1fa; /* Light tab background */
+    color: #34495e; /* Darker tab text */
+    border: none;
+    border-top-left-radius: 8px; /* Rounded top corners */
+    border-top-right-radius: 8px;
+    min-width: 80px;
+    padding: 10px 25px; /* More padding */
+    font-size: 14px;
+    font-weight: 600;
+    margin-right: 3px; /* Spacing between tabs */
+}
+QTabBar::tab:selected {
+    background: #237ffa; /* Primary blue when selected */
+    color: #ffffff;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for selected tab */
+}
+QTabBar::tab:hover:!selected { /* Hover effect only for non-selected tabs */
+    background: #dbeaff; /* Lighter blue on hover */
+    color: #237ffa; /* Primary blue on hover */
+}
+
+/* Checkbox */
+QCheckBox {
+    color: #34495e;
+    font-size: 14px;
+    spacing: 8px; /* Increased spacing */
+}
+QCheckBox::indicator {
+    border: 1.5px solid #237ffa;
+    border-radius: 5px; /* More rounded */
+    width: 20px; /* Larger indicator */
+    height: 20px;
+    background: #ffffff;
+}
+QCheckBox::indicator:checked {
+    background: #237ffa;
+    border: 2px solid #1e6bd6;
+    image: url(resources/check_icon.svg); /* If you have a checkmark icon */
+    /* Or use a unicode character for checkmark if image is not desired
+       content: "\2713"; /* Unicode checkmark */
+       /* font-size: 14px; */
+       /* color: white; */
+       /* text-align: center; */
+    */
+}
+QCheckBox::indicator:checked:hover {
+    background: #1e6bd6;
+    border: 2px solid #237ffa;
+}
+QCheckBox::indicator:hover {
+    border: 2px solid #1e6bd6;
+}
+
+/* RadioButton */
+QRadioButton {
+    color: #34495e;
+    font-size: 14px;
+    spacing: 8px;
+    qproperty-alignment: AlignVCenter;
+}
+QRadioButton::indicator {
+    border: 1.5px solid #237ffa;
+    border-radius: 10px; /* Circle shape */
+    width: 20px; height: 20px;
+    background: #ffffff;
+}
+QRadioButton::indicator:checked {
+    background: radial-gradient(circle, #237ffa 40%, #ffffff 45%); /* Dot in the center */
+    border: 2px solid #1e6bd6;
+}
+QRadioButton::indicator:hover {
+    border: 2px solid #1e6bd6;
+}
+
+/* GroupBox */
+QGroupBox {
+    border: 1px solid #a3b8d4; /* Softer border */
+    border-radius: 10px; /* Consistent radius */
+    margin-top: 20px; /* Space for title */
+    background: #fcfdfe; /* Lighter background */
+    padding: 15px; /* More padding */
+    font-size: 16px; /* Larger title font */
+    font-weight: bold;
+    color: #237ffa; /* Primary blue for title */
+}
+QGroupBox::title {
+    subcontrol-origin: margin;
+    subcontrol-position: top center; /* Center align title */
+    padding: 0 10px;
+    background-color: #e0eaf9; /* Background for title area */
+    border-radius: 5px;
+    margin-left: 10px; /* Adjusted margin */
+    margin-right: 10px;
+}
+
+/* QMessageBox (for consistency) */
+QMessageBox QLabel {
+    color: #34495e;
+    font-size: 15px;
+    padding: 10px; /* Added padding */
+}
+QMessageBox QPushButton {
+    background: #237ffa;
+    color: #ffffff;
+    border-radius: 8px;
+    font-size: 15px;
+    padding: 10px 25px;
+    min-width: 80px;
+}
+QMessageBox QPushButton:hover {
+    background: #1e6bd6;
+}
+
+/* Frame (General purpose, can be styled further with objectName) */
+QFrame {
+    background: transparent; /* Default transparent */
+    border-radius: 8px; /* Consistent radius */
+    /* No default border unless specified by objectName */
+}
+
+/* Example: Specific Frame styles */
+QFrame#MainPanelFrame {
+    border: 1px solid #c0d3eb;
+    background-color: #f5f9ff;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.07);
+}
+
+/* Custom Status Labels */
+QLabel#StatusBarLabel {
+    background-color: #e0eaf9;
+    color: #237ffa;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+QLabel#WarningStatusLabel {
+    background-color: #fff3cd; /* Yellowish background for warnings */
+    color: #856404; /* Dark yellow text */
+    border: 1px solid #ffeeba;
+}
+QLabel#ErrorStatusLabel {
+    background-color: #f8d7da; /* Reddish background for errors */
+    color: #721c24; /* Dark red text */
+    border: 1px solid #f5c6cb;
+}
+
+/* ScrollArea Background */
+QScrollArea {
+    border: none; /* Remove default border */
+    background-color: transparent; /* Allow content to define background */
+}
+QScrollArea > QWidget { /* The actual content widget inside QScrollArea */
+    background-color: transparent;
+}
