@@ -280,33 +280,51 @@ class MainDashboard(QMainWindow):
         second_row_layout.setSpacing(20)
         second_row_layout.addStretch()
 
-        # کارت کل موجودی
-        self.total_inventory_card = ModernCard(
-            title="کل موجودی", 
-            value="0 قلم", 
-            subtitle="تمام داروها",
-            color="#27ae60"
+    # ایجاد کارت های آماری
+        self.sales_today_card = ModernCard(
+            title="فروش امروز",
+            value="۰",
+            subtitle="فروش کل امروز",
+            icon_path="💰", # <--- ایموجی اضافه شد
+            color="#3498db"
         )
-        self.total_inventory_card.clicked.connect(self.open_warehouse_overview)
-        second_row_layout.addWidget(self.total_inventory_card)
-
-        # کارت صندوق
+        self.low_stock_card = ModernCard(
+            title="موجودی کم",
+            value="۰",
+            subtitle="اقلام نیاز به سفارش",
+            icon_path="⚠️", # <--- ایموجی اضافه شد
+            color="#f39c12"
+        )
+        self.near_expiry_card = ModernCard(
+            title="تاریخ نزدیک",
+            value="۰",
+            subtitle="اقلام نزدیک به انقضا",
+            icon_path="⏳", # <--- ایموجی اضافه شد
+            color="#e74c3c"
+        )
+        self.total_inventory_card = ModernCard(
+            title="کل موجودی",
+            value="۰",
+            subtitle="تعداد کل اقلام در انبار",
+            icon_path="📦", # <--- ایموجی اضافه شد
+            color="#2ecc71"
+        )
         self.cash_register_card = ModernCard(
-            title="صندوق", 
-            value="0 تومان", 
-            subtitle="موجودی نقدی",
-            color="#9b59b6"
+            title="صندوق امروز",
+            value="۰",
+            subtitle="مجموع فروش نقدی امروز",
+            icon_path="💵", # <--- ایموجی اضافه شد
+            color="#8e44ad"
+        )
+        self.prescriptions_today_card = ModernCard(
+            title="نسخه‌های امروز",
+            value="۰",
+            subtitle="تعداد نسخه‌های ثبت شده",
+            icon_path="📜", # <--- ایموجی اضافه شد
+            color="#1abc9c"
         )
         self.cash_register_card.clicked.connect(self.open_cash_register)
         second_row_layout.addWidget(self.cash_register_card)
-
-        # کارت نسخه‌های امروز
-        self.prescriptions_today_card = ModernCard(
-            title="نسخه‌های امروز", 
-            value="0 نسخه", 
-            subtitle="تعداد مراجعین",
-            color="#34495e"
-        )
         self.prescriptions_today_card.clicked.connect(self.open_prescriptions_report)
         second_row_layout.addWidget(self.prescriptions_today_card)
 
